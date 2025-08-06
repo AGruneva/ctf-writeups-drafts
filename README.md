@@ -15,7 +15,7 @@ This challenge simulates a cyberattack against a tech company, where participant
 ## 📚 Table of Contents
 
 [D1. Mystery Mail](#d1.-mystery-mail)  
-2. [Challenge 2: NAME](#challenge-2-name)
+[D2. Not-so-Simple Mail Protocol](#d2.-not-so-simple-protocol)  
 3. [Challenge 3: NAME](#challenge-3-name)
 4. [Challenge 4: NAME](#challenge-4-name)
 5. [Challenge 5: NAME](#challenge-5-name)
