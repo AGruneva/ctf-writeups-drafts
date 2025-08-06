@@ -8,11 +8,13 @@
 **Place:** 7th   
 **Participants:** 1000+  
 
+This challenge simulates a cyberattack against a tech company, where participants play both defender (Tier 1) and threat actor (Tier 2) roles. The challenge focuses on incident response, threat detection, and threat intelligence.
+
 ---
 
 ## 📚 Table of Contents
 
-1. [D1. Mystery Mail](#d1.-mystery-mail)
+[D1. Mystery Mail](#d1.-mystery-mail)  
 2. [Challenge 2: NAME](#challenge-2-name)
 3. [Challenge 3: NAME](#challenge-3-name)
 4. [Challenge 4: NAME](#challenge-4-name)
@@ -27,18 +29,47 @@
 
 ---
 
-## 🔍 D1. Mystery Mail
+## D1. Mystery Mail
 
-**Category:** [Forensics / OSINT / Reversing / Web / Crypto / PWN / Misc]  
-**Points:** [100]  
+**Category:** Email Forensics  
+**Points:** 100  
+**Solves:** 800  
 **Description:**  
-> _Paste the challenge description or your summary here._
+> _As a member of the Personalyz.io cybersecurity team, you receive a ransom email threatening to leak stolen data unless demands are met within 48 hours. Your task is to perform initial forensic analysis and extract the sender's original IP address from the email file to assist in incident response._
 
 **Tools Used:**  
-- Tool 1
-- Tool 2
+- Text Editor
 
-**Steps Taken:**
+**Solution:**  
+
+**Step 1**  After opening the attached file in the text editor, we are able to see the sender’s IP address.  
+<img width="857" height="271" alt="Sender IP" src="https://github.com/user-attachments/assets/cf36b622-d6a2-4bbf-a4ea-c698db902512" />  
+The first "Received: from" line (when reading from the bottom up) usually indicates the origin of the message or the server from which the sender's mail client connected. The "From:" address is sgreen123@gwagm.co. This strongly suggests that gwagm.co is the sending domain, and the IP 252.44.98.29 is the server or client that initiated the send to gwagm.co's mail system.
+
+**Flag:** 252.44.98.29
+
+---
+
+## D2. Not-so-Simple Mail Protocol
+
+**Category:** Log Analysis  
+**Points:** 100  
+**Solves:** 679  
+**Description:**  
+> _After receiving a ransom email threatening to leak stolen data, your task is to trace earlier attempts by the threat actor to send the same message. Using the Insightful Horizon (OpenSearch Dashboard), identify the first extortion email sent and submit the sender's email address as the flag._
+
+**Tools Used:**  
+- OpenSearch Dashboards
+
+**Solution:**  
+
+**Step 1**  
+First, I searched the sender’s IP address, but there is only a letter from the previous task in the results. In that email we can trace the email path and other IP addresses indicating a server that handled the email.
+<img width="857" height="271" alt="Sender IP2" src="https://github.com/user-attachments/assets/a9146be6-e264-48f7-88fb-06cd76441fe9" />  
+Search for the second IP reveals the previous email.
+<img width="2038" height="818" alt="First email" src="https://github.com/user-attachments/assets/1aaf46cc-d126-484f-92cd-db1ab6a34105" />  
+
+**Flag:** tharris456@tgwnaagm.co
 
 ```bash
 # commands you ran
