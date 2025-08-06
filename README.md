@@ -3,13 +3,16 @@
 **CTF Name:** 2025 Target WiCyS Challenge  
 **Date:** July, 1 - August, 14  
 **Total Challenges:** 12  
-**Completed:** ✅ 12/12  
+**Completed:** 12/12  
+**Points:** 3010/3010   
+**Place:** 7th   
+**Participants:** 1000+  
 
 ---
 
 ## 📚 Table of Contents
 
-1. [Challenge 1: NAME](#challenge-1-name)
+1. [D1. Mystery Mail](#d1.-mystery-mail)
 2. [Challenge 2: NAME](#challenge-2-name)
 3. [Challenge 3: NAME](#challenge-3-name)
 4. [Challenge 4: NAME](#challenge-4-name)
@@ -24,7 +27,7 @@
 
 ---
 
-## 🔍 Challenge 1: NAME
+## 🔍 D1. Mystery Mail
 
 **Category:** [Forensics / OSINT / Reversing / Web / Crypto / PWN / Misc]  
 **Points:** [100]  
