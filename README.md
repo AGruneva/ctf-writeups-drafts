@@ -19,9 +19,9 @@ This challenge simulates a cyberattack against a tech company, where participant
 
 ## 📚 Table of Contents
 
-[D1. Mystery Mail (Easy, Email Forensics)](#d1-mystery-mail)  
-[D2. Not-so-Simple Mail Protocol (Easy, Log Analysis)](#d2-not-so-simple-mail-protocol)  
-[D3. Ransom Wrangler (Easy, Social Engineering/Incident Response)](#d3-ransom-wrangler)  
+[D1. Mystery Mail (Easy 🟢, Email Forensics)](#d1-mystery-mail)  
+[D2. Not-so-Simple Mail Protocol (Easy 🟢, Log Analysis)](#d2-not-so-simple-mail-protocol)  
+[D3. Ransom Wrangler (Easy 🟢, Social Engineering/Incident Response)](#d3-ransom-wrangler)  
 
 ---
 
