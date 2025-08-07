@@ -22,6 +22,7 @@ This challenge simulates a cyberattack against a tech company, where participant
 [D1. Mystery Mail (Easy 🟢, Email Forensics)](#d1-mystery-mail)  
 [D2. Not-so-Simple Mail Protocol (Easy 🟢, Log Analysis)](#d2-not-so-simple-mail-protocol)  
 [D3. Ransom Wrangler (Easy 🟢, Social Engineering/Incident Response)](#d3-ransom-wrangler)  
+[D4. Trout of Office (Hard 🔴, Log Analysis/Forensics)](#d4-trout-of-office)
 
 ---
 
@@ -176,6 +177,31 @@ Result:
 The attacker accepted a ransom under 30 BTC. Flag 2 collected.  
 
 **Flag:** lelandRowland13058@live.com.au:CTF-RAN-EA602D6D:CTF-DEA-B3B7CB48
+
+## D4. Trout of Office
+
+**Category:** Log analysis/ Forensics  
+**Points:** 500  
+**Solves:** 24  
+**Description:**  
+> _Personalyz.io has received a ransom email claiming that over 50GB of sensitive data has been exfiltrated. With the lead database admin off the grid, it’s up to you to investigate.
+>Your goal is to determine whether the leaked victim data matches any records in the company’s systems by analyzing logs and metadata.
+>You’ve obtained partial victim data from the threat actor during Challenge D3: Ransom Wrangler. Now you’ll need to uncover additional details._
+> 
+>_The flag format is as follows: system-name_birthdate_middle-initial_last-4-digits-of-SSN_person-record-id_
+> 
+>_You have access to a dashboard log viewer and can choose from three servers. You also know that the security team uses this entrypoint to access the application system: https://target-flask.chals.io/_
+
+**Tools Used:**  
+- OpenSearch Dashboards
+- curl
+- Python scripts
+
+**Solution:**  
+
+
+
+**Flag:** z3Ke1zCo0l-007_1969-07-22_m_2282_d9847a3e25
 
 ```bash
 # commands you ran
