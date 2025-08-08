@@ -22,14 +22,15 @@ This challenge simulates a cyberattack against a tech company, where participant
 [D1. Mystery Mail (Easy 🟢, Email Forensics)](#d1-mystery-mail)  
 [D2. Not-so-Simple Mail Protocol (Easy 🟢, Log Analysis)](#d2-not-so-simple-mail-protocol)  
 [D3. Ransom Wrangler (Easy 🟢, Social Engineering/Incident Response)](#d3-ransom-wrangler)  
-[D4. Trout of Office (Hard 🔴, Log Analysis/Forensics)](#d4-trout-of-office)
+[D4. Trout of Office (Hard 🔴, Log Analysis/Forensics)](#d4-trout-of-office)  
+[D5. Ahoy, PCAP'n! (Medium 🟡, Network Forensics)](#d5-ahoy-pcapn)
 
 ---
 
 ## D1. Mystery Mail
 
 **Category:** Email Forensics  
-**Points:** 100  
+**Points:** 100 (Easy)  
 **Solves:** 800  
 **Description:**  
 > _As a member of the Personalyz.io cybersecurity team, you receive a ransom email threatening to leak stolen data unless demands are met within 48 hours. Your task is to perform initial forensic analysis and extract the sender's original IP address from the email file to assist in incident response._
@@ -50,7 +51,7 @@ The first "Received: from" line (when reading from the bottom up) usually indica
 ## D2. Not-so-Simple Mail Protocol
 
 **Category:** Log Analysis  
-**Points:** 100  
+**Points:** 100 (Easy)  
 **Solves:** 679  
 **Description:**  
 > _After receiving a ransom email threatening to leak stolen data, your task is to trace earlier attempts by the threat actor to send the same message. Using the Insightful Horizon (OpenSearch Dashboard), identify the first extortion email sent and submit the sender's email address as the flag._
@@ -72,7 +73,7 @@ Search for the second IP reveals the previous email.
 ## D3. Ransom Wrangler
 
 **Category:** Social Engineering / Incident Response  
-**Points:** 100  
+**Points:** 100 (Easy)  
 **Solves:** 638  
 **Description:**  
 > _Here the task is to simulate communication with a ransomware actor to validate claims of a data breach, obtain proof, and negotiate terms including ransom reduction and deadline extension. You will need to collect three flags to complete the challenge: email from stolen data, ransom reduction code and deadline extension code. Flag submiting format: email@example.com:CTF-RAN-XXXXXXXX:CTF-DEA-XXXXXXXX_
@@ -181,7 +182,7 @@ The attacker accepted a ransom under 30 BTC. Flag 2 collected.
 ## D4. Trout of Office
 
 **Category:** Log analysis/ Forensics  
-**Points:** 500  
+**Points:** 500 (Hard)  
 **Solves:** 24  
 **Description:**  
 > _Personalyz.io has received a ransom email claiming that over 50GB of sensitive data has been exfiltrated. With the lead database admin off the grid, it’s up to you to investigate.
@@ -202,6 +203,41 @@ The attacker accepted a ransom under 30 BTC. Flag 2 collected.
 
 
 **Flag:** z3Ke1zCo0l-007_1969-07-22_m_2282_d9847a3e25
+
+## D5. Ahoy, PCAP'n!
+
+**Category:** Network Forensics  
+**Points:** 300 (Medium)  
+**Solves:** 404  
+**Description:**  
+> _The company’s network team has captured a short PCAP file around the time of a suspected breach. Your mission: find the compromised host exfiltrating sensitive data and the Command-and-Control (C2) server it’s communicating with. The flag format is as follows: compromised-hostname_C2-IP_
+
+**Tools Used:**  
+- Wireshark
+
+**Solution:**  
+
+**Step 1**  
+Searching by the available IPs and emails didn’t yield any results. Next, I filtered HTTP requests but also didn’t find anything suspicious.
+
+Then I switched to analyzing DNS traffic and noticed suspicious domains in packets with the destination IP 251.91.13.37, such as: 
+>p5hjqx.bytefcdn-ttpeu.com
+
+These domain names looked random and meaningless, an indicator of DNS tunneling. DNS tunneling is a technique where attackers encode data into DNS queries and responses to bypass firewalls and exfiltrate information without raising alarms. Because DNS is almost always allowed through network boundaries, it can be abused as a covert channel for Command-and-Control (C2) communication or data theft. For reference, see the MITRE ATT&CK technique: Exfiltration Over Alternative Protocol (T1048.003).
+
+After identifying the suspicious DNS packets, I filtered them by destination IP 251.91.13.37 to focus only on the possible C2 channel. The traffic patterns confirmed the tunneling suspicion.  
+
+<img width="1283" height="500" alt="dns tunnel" src="https://github.com/user-attachments/assets/6a73cabe-0368-4d95-b787-e2492a77818f" />
+
+**Step 2**  
+Next step was to determine the compromised hostname. I enabled name resolution in Wireshark by going to:
+>View → Name Resolution → Resolve Network Addresses
+
+This revealed the compromised host’s name: bvlik.  
+
+<img width="1280" height="454" alt="hostname" src="https://github.com/user-attachments/assets/28fc3e94-9b82-419f-8014-6a8c68fc26c3" />  
+
+**Flag:** bvlik_251.91.13.37
 
 ```bash
 # commands you ran
